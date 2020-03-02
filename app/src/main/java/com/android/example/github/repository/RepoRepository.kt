@@ -20,17 +20,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.switchMap
 import com.android.example.github.AppExecutors
 import com.android.example.data.api.ApiSuccessResponse
-import com.android.example.github.api.GithubService
-import com.android.example.github.api.RepoSearchResponse
+import com.android.example.data.api.GithubService
+import com.android.example.data.api.RepoSearchResponse
 import com.android.example.github.db.GithubDb
 import com.android.example.github.db.RepoDao
 import com.android.example.github.testing.OpenForTesting
 import com.android.example.github.util.AbsentLiveData
 import com.android.example.github.util.RateLimiter
-import com.android.example.github.vo.Contributor
-import com.android.example.github.vo.Repo
+import com.android.example.model.Contributor
+import com.android.example.model.Repo
 import com.android.example.github.vo.RepoSearchResult
-import com.android.example.github.vo.Resource
+import com.android.example.model.Resource
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -102,14 +102,14 @@ class RepoRepository @Inject constructor(
                 }
                 db.runInTransaction {
                     repoDao.createRepoIfNotExists(
-                        Repo(
-                            id = Repo.UNKNOWN_ID,
-                            name = name,
-                            fullName = "$owner/$name",
-                            description = "",
-                            owner = Repo.Owner(owner, null),
-                            stars = 0
-                        )
+                            Repo(
+                                    id = Repo.UNKNOWN_ID,
+                                    name = name,
+                                    fullName = "$owner/$name",
+                                    description = "",
+                                    owner = Repo.Owner(owner, null),
+                                    stars = 0
+                            )
                     )
                     repoDao.insertContributors(item)
                 }

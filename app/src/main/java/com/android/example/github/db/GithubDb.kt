@@ -19,10 +19,10 @@ package com.android.example.github.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.android.example.github.vo.Contributor
-import com.android.example.github.vo.Repo
+import com.android.example.model.Contributor
+import com.android.example.model.Repo
 import com.android.example.github.vo.RepoSearchResult
-import com.android.example.github.vo.User
+import com.android.example.model.User
 
 /**
  * Main database description.

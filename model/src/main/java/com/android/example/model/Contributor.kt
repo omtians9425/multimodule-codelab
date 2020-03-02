@@ -14,23 +14,34 @@
  * limitations under the License.
  */
 
-package com.android.example.github.vo
+package com.android.example.model
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
+import com.android.example.model.Repo
 import com.google.gson.annotations.SerializedName
 
-@Entity(primaryKeys = ["login"])
-data class User(
+@Entity(
+    primaryKeys = ["repoName", "repoOwner", "login"],
+    foreignKeys = [ForeignKey(
+        entity = Repo::class,
+        parentColumns = ["name", "owner_login"],
+        childColumns = ["repoName", "repoOwner"],
+        onUpdate = ForeignKey.CASCADE,
+        deferred = true
+    )]
+)
+data class Contributor(
     @field:SerializedName("login")
     val login: String,
+    @field:SerializedName("contributions")
+    val contributions: Int,
     @field:SerializedName("avatar_url")
-    val avatarUrl: String?,
-    @field:SerializedName("name")
-    val name: String?,
-    @field:SerializedName("company")
-    val company: String?,
-    @field:SerializedName("repos_url")
-    val reposUrl: String?,
-    @field:SerializedName("blog")
-    val blog: String?
-)
+    val avatarUrl: String?
+) {
+
+    // does not show up in the response but set in post processing.
+    lateinit var repoName: String
+    // does not show up in the response but set in post processing.
+    lateinit var repoOwner: String
+}

@@ -20,7 +20,7 @@ import android.app.Application
 import androidx.room.Room
 import com.android.example.github.api.AuthenticationInterceptor
 import com.android.example.data.api.GithubAuthService
-import com.android.example.github.api.GithubService
+import com.android.example.data.api.GithubService
 import com.android.example.github.db.GithubDb
 import com.android.example.github.db.RepoDao
 import com.android.example.github.db.UserDao

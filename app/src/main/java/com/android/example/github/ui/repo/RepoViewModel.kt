@@ -23,9 +23,9 @@ import androidx.lifecycle.switchMap
 import com.android.example.github.repository.RepoRepository
 import com.android.example.github.testing.OpenForTesting
 import com.android.example.github.util.AbsentLiveData
-import com.android.example.github.vo.Contributor
-import com.android.example.github.vo.Repo
-import com.android.example.github.vo.Resource
+import com.android.example.model.Contributor
+import com.android.example.model.Repo
+import com.android.example.model.Resource
 import javax.inject.Inject
 
 @OpenForTesting

@@ -14,17 +14,22 @@
  * limitations under the License.
  */
 
-package com.android.example.github.vo
+package com.android.example.data.api
+
+
+import com.android.example.model.Repo
+import com.google.gson.annotations.SerializedName
 
 /**
- * Status of a resource that is provided to the UI.
- *
- *
- * These are usually created by the Repository classes where they return
- * `LiveData<Resource<T>>` to pass back the latest data to the UI with its fetch status.
+ * Simple object to hold repo search responses. This is different from the Entity in the database
+ * because we are keeping a search result in 1 row and denormalizing list of results into a single
+ * column.
  */
-enum class Status {
-    SUCCESS,
-    ERROR,
-    LOADING
+data class RepoSearchResponse(
+    @SerializedName("total_count")
+    val total: Int = 0,
+    @SerializedName("items")
+    val items: List<Repo>
+) {
+    var nextPage: Int? = null
 }

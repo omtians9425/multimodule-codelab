@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package com.android.example.github.api
+package com.android.example.data.api
 
 import androidx.lifecycle.LiveData
 import com.android.example.data.api.ApiResponse
-import com.android.example.github.vo.Contributor
-import com.android.example.github.vo.Repo
-import com.android.example.github.vo.User
+import com.android.example.data.api.RepoSearchResponse
+import com.android.example.model.Contributor
+import com.android.example.model.Repo
+import com.android.example.model.User
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

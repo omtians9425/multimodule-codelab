@@ -25,7 +25,7 @@ import com.android.example.data.api.ApiEmptyResponse
 import com.android.example.data.api.ApiErrorResponse
 import com.android.example.data.api.ApiResponse
 import com.android.example.data.api.ApiSuccessResponse
-import com.android.example.github.vo.Resource
+import com.android.example.model.Resource
 
 /**
  * A generic class that can provide a resource backed by both the sqlite database and the network.

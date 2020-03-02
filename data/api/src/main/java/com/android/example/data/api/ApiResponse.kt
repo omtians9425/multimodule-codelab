@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.example.github.api
+package com.android.example.data.api
 
 import retrofit2.Response
 import timber.log.Timber
@@ -28,7 +28,8 @@ import java.util.regex.Pattern
 sealed class ApiResponse<T> {
     companion object {
         fun <T> create(error: Throwable): ApiErrorResponse<T> {
-            return ApiErrorResponse(error.message ?: "unknown error")
+            return ApiErrorResponse(error.message
+                    ?: "unknown error")
         }
 
         fun <T> create(response: Response<T>): ApiResponse<T> {
@@ -38,8 +39,8 @@ sealed class ApiResponse<T> {
                     ApiEmptyResponse()
                 } else {
                     ApiSuccessResponse(
-                        body = body,
-                        linkHeader = response.headers()?.get("link")
+                            body = body,
+                            linkHeader = response.headers()?.get("link")
                     )
                 }
             } else {
@@ -49,7 +50,8 @@ sealed class ApiResponse<T> {
                 } else {
                     msg
                 }
-                ApiErrorResponse(errorMsg ?: "unknown error")
+                ApiErrorResponse(errorMsg
+                        ?: "unknown error")
             }
         }
     }

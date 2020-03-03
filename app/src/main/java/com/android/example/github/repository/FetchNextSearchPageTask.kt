@@ -23,8 +23,8 @@ import com.android.example.data.api.ApiErrorResponse
 import com.android.example.data.api.ApiResponse
 import com.android.example.data.api.ApiSuccessResponse
 import com.android.example.data.api.GithubService
-import com.android.example.github.db.GithubDb
-import com.android.example.github.vo.RepoSearchResult
+import com.android.example.data.db.GithubDb
+import com.android.example.data.db.RepoSearchResult
 import com.android.example.model.Resource
 import java.io.IOException
 
@@ -61,8 +61,8 @@ class FetchNextSearchPageTask constructor(
 
                     ids.addAll(apiResponse.body.items.map { it.id })
                     val merged = RepoSearchResult(
-                        query, ids,
-                        apiResponse.body.total, apiResponse.nextPage
+                            query, ids,
+                            apiResponse.body.total, apiResponse.nextPage
                     )
                     db.runInTransaction {
                         db.repoDao().insert(merged)

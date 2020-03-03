@@ -14,22 +14,31 @@
  * limitations under the License.
  */
 
-package com.android.example.github.util
+package com.android.example.data.db
 
-import androidx.lifecycle.LiveData
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import com.android.example.model.Contributor
+import com.android.example.model.Repo
+import com.android.example.data.db.RepoSearchResult
+import com.android.example.model.User
 
 /**
- * A LiveData class that has `null` value.
+ * Main database description.
  */
-class AbsentLiveData<T : Any?> private constructor(): LiveData<T>() {
-    init {
-        // use post instead of set since this can be created on any thread
-        postValue(null)
-    }
+@Database(
+    entities = [
+        User::class,
+        Repo::class,
+        Contributor::class,
+        RepoSearchResult::class],
+    version = 3,
+    exportSchema = false
+)
+abstract class GithubDb : RoomDatabase() {
 
-    companion object {
-        fun <T> create(): LiveData<T> {
-            return AbsentLiveData()
-        }
-    }
+    abstract fun userDao(): UserDao
+
+    abstract fun repoDao(): RepoDao
 }

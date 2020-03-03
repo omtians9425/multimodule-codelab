@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.example.github.db
+package com.android.example.data.db
 
 import android.util.SparseIntArray
 import androidx.lifecycle.LiveData
@@ -26,7 +26,6 @@ import androidx.room.Query
 import com.android.example.testing.OpenForTesting
 import com.android.example.model.Contributor
 import com.android.example.model.Repo
-import com.android.example.github.vo.RepoSearchResult
 
 /**
  * Interface for database access on Repo related operations.

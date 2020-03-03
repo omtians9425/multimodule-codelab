@@ -19,7 +19,7 @@ package com.android.example.github.repository
 import androidx.lifecycle.LiveData
 import com.android.example.executor.AppExecutors
 import com.android.example.data.api.GithubService
-import com.android.example.github.db.UserDao
+import com.android.example.data.db.UserDao
 import com.android.example.testing.OpenForTesting
 import com.android.example.model.Resource
 import com.android.example.model.User

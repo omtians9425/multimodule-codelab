@@ -21,9 +21,9 @@ import androidx.room.Room
 import com.android.example.data.api.GithubAuthService
 import com.android.example.data.api.GithubService
 import com.android.example.data.api_builder.ApiBuilder
-import com.android.example.github.db.GithubDb
-import com.android.example.github.db.RepoDao
-import com.android.example.github.db.UserDao
+import com.android.example.data.db.GithubDb
+import com.android.example.data.db.RepoDao
+import com.android.example.data.db.UserDao
 import dagger.Module
 import dagger.Provides
 import okhttp3.logging.HttpLoggingInterceptor

@@ -14,23 +14,22 @@
  * limitations under the License.
  */
 
-package com.android.example.github.db
+package com.android.example.data.repository
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import com.android.example.model.User
 
 /**
- * Interface for database access for User related operations.
+ * A LiveData class that has `null` value.
  */
-@Dao
-interface UserDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(user: User)
+class AbsentLiveData<T : Any?> private constructor(): LiveData<T>() {
+    init {
+        // use post instead of set since this can be created on any thread
+        postValue(null)
+    }
 
-    @Query("SELECT * FROM user WHERE login = :login")
-    fun findByLogin(login: String): LiveData<User>
+    companion object {
+        fun <T> create(): LiveData<T> {
+            return AbsentLiveData()
+        }
+    }
 }

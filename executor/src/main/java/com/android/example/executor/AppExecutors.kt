@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.example.github
+package com.android.example.executor
 
 import android.os.Handler
 import android.os.Looper
@@ -42,7 +42,7 @@ open class AppExecutors(
     constructor() : this(
         Executors.newSingleThreadExecutor(),
         Executors.newFixedThreadPool(3),
-        MainThreadExecutor()
+            MainThreadExecutor()
     )
 
     fun diskIO(): Executor {

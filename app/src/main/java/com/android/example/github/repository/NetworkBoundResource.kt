@@ -20,7 +20,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
-import com.android.example.github.AppExecutors
+import com.android.example.executor.AppExecutors
 import com.android.example.data.api.ApiEmptyResponse
 import com.android.example.data.api.ApiErrorResponse
 import com.android.example.data.api.ApiResponse

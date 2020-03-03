@@ -18,7 +18,7 @@ package com.android.example.github.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.switchMap
-import com.android.example.github.AppExecutors
+import com.android.example.executor.AppExecutors
 import com.android.example.data.api.ApiSuccessResponse
 import com.android.example.data.api.GithubService
 import com.android.example.data.api.RepoSearchResponse
@@ -45,10 +45,10 @@ import javax.inject.Singleton
 @Singleton
 @OpenForTesting
 class RepoRepository @Inject constructor(
-    private val appExecutors: AppExecutors,
-    private val db: GithubDb,
-    private val repoDao: RepoDao,
-    private val githubService: GithubService
+        private val appExecutors: AppExecutors,
+        private val db: GithubDb,
+        private val repoDao: RepoDao,
+        private val githubService: GithubService
 ) {
 
     private val repoListRateLimit = RateLimiter<String>(10, TimeUnit.MINUTES)

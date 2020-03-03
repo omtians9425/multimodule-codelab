@@ -16,7 +16,7 @@
 
 package com.android.example.github.util
 
-import com.android.example.github.AppExecutors
+import com.android.example.executor.AppExecutors
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -50,9 +50,9 @@ class CountingAppExecutors(idleCallback: (() -> Unit)? = null) {
             }
         }
         appExecutors = AppExecutors(
-            CountingExecutor(increment, decrement),
-            CountingExecutor(increment, decrement),
-            CountingExecutor(increment, decrement)
+                CountingExecutor(increment, decrement),
+                CountingExecutor(increment, decrement),
+                CountingExecutor(increment, decrement)
         )
     }
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.example.github.repository
+package com.android.example.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.switchMap
@@ -25,8 +25,6 @@ import com.android.example.data.api.RepoSearchResponse
 import com.android.example.data.db.GithubDb
 import com.android.example.data.db.RepoDao
 import com.android.example.data.db.RepoSearchResult
-import com.android.example.data.repository.AbsentLiveData
-import com.android.example.data.repository.RateLimiter
 import com.android.example.testing.OpenForTesting
 import com.android.example.model.Contributor
 import com.android.example.model.Repo
@@ -127,9 +125,9 @@ class RepoRepository @Inject constructor(
 
     fun searchNextPage(query: String): LiveData<Resource<Boolean>> {
         val fetchNextSearchPageTask = FetchNextSearchPageTask(
-            query = query,
-            githubService = githubService,
-            db = db
+                query = query,
+                githubService = githubService,
+                db = db
         )
         appExecutors.networkIO().execute(fetchNextSearchPageTask)
         return fetchNextSearchPageTask.liveData

@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion build_versions.target_sdk
@@ -16,13 +15,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 
     buildTypes {
         release {
@@ -34,16 +26,7 @@ android {
 }
 
 dependencies {
-    api project(":model")
-    releaseImplementation project(":testing-release")
-    debugImplementation project(":testing-debug")
-
-    implementation deps.lifecycle.livedata_ktx
-    api deps.room.runtime
     implementation deps.kotlin.stdlib
-    implementation deps.timber
-
-    kapt deps.room.compiler
 
     androidTestImplementation deps.atsl.ext_junit
     androidTestImplementation deps.espresso.core

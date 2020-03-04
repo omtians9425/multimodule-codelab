@@ -83,6 +83,7 @@ dependencies {
     debugImplementation project(":testing-debug")
     implementation project(":executor")
     implementation project(":feature:login")
+    implementation project(":envvar")
 
     implementation deps.app_compat
     implementation deps.recyclerview

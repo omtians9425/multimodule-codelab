@@ -22,6 +22,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
+import com.android.example.di.Injectable
 import com.android.example.github.GithubApp
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection

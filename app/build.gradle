@@ -84,6 +84,7 @@ dependencies {
     implementation project(":executor")
     implementation project(":feature:login")
     implementation project(":envvar")
+    implementation project(":di")
 
     implementation deps.app_compat
     implementation deps.recyclerview

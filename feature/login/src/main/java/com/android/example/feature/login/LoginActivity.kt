@@ -1,4 +1,4 @@
-package com.android.example.github.ui.login
+package com.android.example.feature.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.lifecycle.lifecycleScope
-import com.android.example.github.R
-import com.android.example.github.di.Injectable
-import com.android.example.feature.login.LoginHelper
+import com.android.example.di.Injectable
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

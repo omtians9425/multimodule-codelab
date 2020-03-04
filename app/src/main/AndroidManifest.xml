@@ -29,7 +29,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name="com.android.example.feature.login.LoginActivity"
             android:launchMode="singleTask">
 
             <intent-filter>

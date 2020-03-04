@@ -24,6 +24,8 @@ import com.android.example.data.api_builder.ApiBuilder
 import com.android.example.data.db.GithubDb
 import com.android.example.data.db.RepoDao
 import com.android.example.data.db.UserDao
+import com.android.example.envvar.EnvVar
+import com.android.example.github.BuildConfig
 import dagger.Module
 import dagger.Provides
 import okhttp3.logging.HttpLoggingInterceptor
@@ -71,6 +73,15 @@ class AppModule {
     @Provides
     fun provideRepoDao(db: GithubDb): RepoDao {
         return db.repoDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideEnvVar(): EnvVar {
+        return object : EnvVar {
+            override val GITHUB_CLIENT_ID = BuildConfig.GITHUB_CLIENT_ID
+            override val GITHUB_CLIENT_SECRET = BuildConfig.GITHUB_CLIENT_SECRET
+        }
     }
 }
 

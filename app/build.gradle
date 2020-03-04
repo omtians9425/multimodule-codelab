@@ -93,14 +93,10 @@ dependencies {
     implementation deps.core_ktx
     implementation deps.transition
     implementation deps.navigation.fragment_ktx
-    implementation deps.room.runtime
     implementation deps.lifecycle.livedata_ktx
     implementation deps.lifecycle.runtime_ktx
     implementation deps.lifecycle.java8
     implementation deps.browser
-    implementation deps.retrofit.runtime
-    implementation deps.retrofit.gson
-    implementation deps.okhttp_logging_interceptor
     implementation deps.glide.runtime
 
     implementation deps.dagger.runtime
@@ -112,12 +108,8 @@ dependencies {
 
     implementation deps.timber
 
-    implementation deps.kotpref.core
-    implementation deps.kotpref.initializer
-
     kapt deps.dagger.android_support_compiler
     kapt deps.dagger.compiler
-    kapt deps.room.compiler
     kapt deps.lifecycle.compiler
 
     testImplementation deps.junit
